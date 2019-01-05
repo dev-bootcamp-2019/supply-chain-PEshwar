@@ -34,7 +34,7 @@ contract('SupplyChain', function(accounts) {
         
         const result = await supplyChain.fetchItem.call(sku)
 
-        assert.equal(result[0], name, 'the name of the last added item does not match the expected value')
+        assert.equal(result[0].toString(10), name, 'the name of the last added item does not match the expected value')
         assert.equal(result[2].toString(10), price, 'the price of the last added item does not match the expected value')
         assert.equal(result[3].toString(10), 0, 'the state of the item should be "For Sale", which should be declared first in the State Enum')
         assert.equal(result[4], alice, 'the address adding the item should be listed as the seller')
